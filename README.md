@@ -1,3 +1,20 @@
-"# efficient_recommendation_retrieval"
+# Recent Advances in Scalable Retrieval of Personalized Recommendation
 
-This tutorial is to provide you an overview and practice on how to create a fast and accurate recommendation system.
+## Enviroment Setup
+
+1. Python 3 which can be downloaded from [here](https://www.python.org/downloads/release/python-360/).   
+2. Jupyter Notebook: please find the instruction on how to install Jupyter Notebook [here](https://jupyter.org/install)
+
+Next, you need to clone this repository:
+
+'''
+$ git clone https://github.com/PreferredAI/recommendation-retrieval.git
+$ cd recommendation-retrieval
+'''
+Run the following command to install required packages.
+'''
+pip3 install -r requirements.txt
+'''
+
+
+
