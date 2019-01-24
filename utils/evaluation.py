@@ -20,7 +20,7 @@ def evaluate_topK(test_data, rec_list, k=10):
     return precision_acc / len(inv_lst), recall_acc / len(inv_lst)
 
 
-def evalate_LSHTopK(test_vec, data, queries, hashFamily, num_table, num_bit, metric, topK):
+def evaluate_LSHTopK(test_vec, data, queries, hashFamily, num_table, num_bit, metric, topK):
     lsh_index = LSHIndex(hash_family = hashFamily(data.shape[1]), k = num_bit, L=num_table)
               
     #build index

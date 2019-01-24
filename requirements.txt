@@ -1,4 +1,5 @@
 cornac
 numpy
 scipy
+matplotlib
 
