@@ -11,6 +11,7 @@ Next, you need to clone this repository:
 $ git clone https://github.com/PreferredAI/recommendation-retrieval.git
 $ cd recommendation-retrieval
 ```
+
 Run the following command to install required packages.
 
 ```bash
