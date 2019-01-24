@@ -1,10 +1,3 @@
-# A Preferred.AI's tutorial on accurate and scablable retrieval of personalized recommendations. 
+"# efficient_recommendation_retrieval"
 
-Slides are available at [aaai19-tutorial-presentation](https://github.com/PreferredAI/recommendation-retrieval/tree/master/slides)
-
-## Outline of the tutorial:
-1. Two phases of a recommender system: learning and retrieval
-2. Scalable recommendation retrieval via indexing
-3. Indexable Representation Learning
-
-
+This tutorial is to provide you an overview and practice on how to create a fast and accurate recommendation system.
