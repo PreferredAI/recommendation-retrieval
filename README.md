@@ -14,8 +14,12 @@ $ cd recommendation-retrieval
 Run the following command to install required packages.
 
 ```bash
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
+Run the following command to start Jupyter Notebook
+```
+$ jupyter notebook
+```
 
 
