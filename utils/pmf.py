@@ -22,38 +22,38 @@ class PMF(object):
     # ***************** train_vec=TrainData, test_vec=TestData*************#
     def fit(self, train_vec, test_vec):
         # mean subtraction
-        self.mean_inv = np.mean(train_vec[:, 2])  # 评分平均值
+        self.mean_inv = np.mean(train_vec[:, 2])  
 
-        pairs_train = train_vec.shape[0]  # traindata 中条目数
-        pairs_test = test_vec.shape[0]  # testdata中条目数
+        pairs_train = train_vec.shape[0]  # traindata 
+        pairs_test = test_vec.shape[0]  # testdata
 
         # 1-p-i, 2-m-c
-        num_user = int(max(np.amax(train_vec[:, 0]), np.amax(test_vec[:, 0]))) + 1  # 第0列，user总数
-        num_item = int(max(np.amax(train_vec[:, 1]), np.amax(test_vec[:, 1]))) + 1  # 第1列，movie总数
+        num_user = int(max(np.amax(train_vec[:, 0]), np.amax(test_vec[:, 0]))) #+ 1  
+        num_item = int(max(np.amax(train_vec[:, 1]), np.amax(test_vec[:, 1]))) #+ 1  
 
-        incremental = False  # 增量
+        incremental = False  
         if ((not incremental) or (self.w_Item is None)):
             # initialize
             self.epoch = 0
-            self.w_Item = 0.1 * np.random.randn(num_item, self.num_feat)  # numpy.random.randn 电影 M x D 正态分布矩阵
-            self.w_User = 0.1 * np.random.randn(num_user, self.num_feat)  # numpy.random.randn 用户 N x D 正态分布矩阵
+            self.w_Item = 0.1 * np.random.randn(num_item, self.num_feat)  
+            self.w_User = 0.1 * np.random.randn(num_user, self.num_feat)  
 
-            self.w_Item_inc = np.zeros((num_item, self.num_feat))  # 创建电影 M x D 0矩阵
-            self.w_User_inc = np.zeros((num_user, self.num_feat))  # 创建用户 N x D 0矩阵
+            self.w_Item_inc = np.zeros((num_item, self.num_feat))  
+            self.w_User_inc = np.zeros((num_user, self.num_feat))  
 
-        while self.epoch < self.maxepoch:  # 检查迭代次数
+        while self.epoch < self.maxepoch:  
             self.epoch += 1
 
             # Shuffle training truples
-            shuffled_order = np.arange(train_vec.shape[0])  # 根据记录数创建等差array
-            np.random.shuffle(shuffled_order)  # 用于将一个列表中的元素打乱
+            shuffled_order = np.arange(train_vec.shape[0])  
+            np.random.shuffle(shuffled_order)  
 
             # Batch update
-            for batch in range(self.num_batches):  # 每次迭代要使用的数据量
+            for batch in range(self.num_batches):  
                 # print "epoch %d batch %d" % (self.epoch, batch+1)
 
                 test = np.arange(self.batch_size * batch, self.batch_size * (batch + 1))
-                batch_idx = np.mod(test, shuffled_order.shape[0])  # 本次迭代要使用的索引下标
+                batch_idx = np.mod(test, shuffled_order.shape[0]) 
 
                 batch_UserID = np.array(train_vec[shuffled_order[batch_idx], 0], dtype='int32')
                 batch_ItemID = np.array(train_vec[shuffled_order[batch_idx], 1], dtype='int32')
@@ -61,7 +61,7 @@ class PMF(object):
                 # Compute Objective Function
                 pred_out = np.sum(np.multiply(self.w_User[batch_UserID, :],
                                               self.w_Item[batch_ItemID, :]),
-                                  axis=1)  # mean_inv subtracted # np.multiply对应位置元素相乘
+                                  axis=1)  # mean_inv subtracted # np.multiply
 
                 rawErr = pred_out - train_vec[shuffled_order[batch_idx], 2] + self.mean_inv
 
