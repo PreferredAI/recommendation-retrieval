@@ -28,8 +28,8 @@ class PMF(object):
         pairs_test = test_vec.shape[0]  # testdata
 
         # 1-p-i, 2-m-c
-        num_user = int(max(np.amax(train_vec[:, 0]), np.amax(test_vec[:, 0]))) #+ 1  
-        num_item = int(max(np.amax(train_vec[:, 1]), np.amax(test_vec[:, 1]))) #+ 1  
+        num_user = int(max(np.amax(train_vec[:, 0]), np.amax(test_vec[:, 0]))) + 1  
+        num_item = int(max(np.amax(train_vec[:, 1]), np.amax(test_vec[:, 1]))) + 1  
 
         incremental = False  
         if ((not incremental) or (self.w_Item is None)):
