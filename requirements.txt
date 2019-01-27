@@ -2,4 +2,4 @@ cornac
 numpy
 scipy
 matplotlib
-
+sklearn
