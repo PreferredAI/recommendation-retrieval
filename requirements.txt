@@ -1,5 +1,5 @@
-cornac
-numpy
+cornac==0.1.0.post5
+numpy==1.16.0
 scipy
 matplotlib
 sklearn
